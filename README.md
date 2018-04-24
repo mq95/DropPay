@@ -1,28 +1,19 @@
-# Gentelella
+# Registrazione e verifica clientela su DropPay
 
-A skeleton application with user account functionality on the foundation of the Symfony framework, Twitter Bootstrap and Gentelella template. 
+Si tratta di un progetto per la registrazione di utenti a DropPay, inoltre ci sono una serie di passaggi che il Back Office della società deve eseguire per poter attivare il conto dell'utente che intende registrarsi. 
 
-Interested in Symfony administrator application? See necessarily [Symfonator](https://github.com/krzysiekpiasecki/Symfonator).
 
-<br/>
+### User predefinito con cui possiamo accedere sia a livello utente che a livello back office
 
-![Screenshot](https://github.com/krzysiekpiasecki/Gentelella/blob/master/web/assets/images/screenshot2.png)
-
-<br>
-
-### Live demo
-
-[Gentelella has been installed on Heroku cloud](https://gentelella.herokuapp.com)
-
-Application has been deployed with credentials: __admin__ __password__
-
+Le credenziali per accedervi sono: __admin__ __password__
 
 <br>
 
-### Documentation
+### DropPay in breve 
 
-[A little more about the Gentelella and how to install and run the application](https://github.com/krzysiekpiasecki/Gentelella/wiki)
+Con DropPay® puoi inviare e ricevere denaro con il tuo smartphone ed effettuare pagamenti in modo sicuro. 
 
+[DropPay](https://www.drop-pay.com/it/home)
 
 <br>
 
@@ -31,12 +22,4 @@ Application has been deployed with credentials: __admin__ __password__
 [Gentelella](https://github.com/puikinsh/gentelella) - Admin template developed and maintained by Colorlib and Aigars Silkalns
 
 <br>
-
-### Contributors
-
-[MedUnes](https://github.com/MedUnes)
-[ousamabenyounes](https://github.com/ousamabenyounes)
-[samrodriguez](https://github.com/samrodriguez)
-
-
 
