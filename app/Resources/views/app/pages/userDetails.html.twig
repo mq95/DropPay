@@ -1,0 +1,513 @@
+{% extends "app/base.html.twig" %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+
+    <!-- iCheck -->
+    <link href="{{ asset('assets/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="{{ asset('assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="{{ asset('assets/vendors/jqvmap/dist/jqvmap.min.css') }}" rel="stylesheet"/>
+    <!-- Bootstrap -->
+    <link href="{{ asset('assets/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{{ asset('assets/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{{ asset('assets/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="{{ asset('assets/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
+    <!-- bootstrap-wysiwyg -->
+    <link href="{{ asset('assets/vendors/google-code-prettify/bin/prettify.min.css') }}" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="{{ asset('assets/vendors/select2/dist/css/select2.min.css') }}" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="{{ asset('assets/vendors/switchery/dist/switchery.min.css') }}" rel="stylesheet">
+    <!-- starrr -->
+    <link href="{{ asset('assets/vendors/starrr/dist/starrr.css') }}" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+
+
+    <!-- Bootstrap -->
+    <link href="{{ asset('assets/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{{ asset('assets/vendors/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{{ asset('assets/vendors/nprogress/nprogress.css') }}" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
+    <!-- Ion.RangeSlider -->
+    <link href="{{ asset('assets/vendors/normalize-css/normalize.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendors/ion.rangeSlider/css/ion.rangeSlider.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css') }}" rel="stylesheet">
+    <!-- Bootstrap Colorpicker -->
+    <link href="{{ asset('assets/vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('assets/vendors/cropper/dist/cropper.min.css') }}" rel="stylesheet">
+
+
+    <!-- Custom Theme Style -->
+    <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet">
+    
+{% endblock stylesheets %}
+
+{% block top_content_header %}{% endblock top_content_header%}
+
+{% block page_content %}
+
+
+ <!-- page content -->
+        
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>{{ account.username }} Profile</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>{{ account.username }} Details</h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                      <div class="profile_img">
+                        <div id="crop-avatar">
+
+                          <!-- Current avatar -->
+                          <img class="img-responsive avatar-view" src="{{ asset('/assets/uploads/images/' ~ account.selfie) }}" alt="Avatar">
+                        </div>
+                      </div>
+                      
+<br/>
+                      <ul class="list-unstyled user_data">
+                         <li><h4>Firstname: </h4>{{account.firstname}}</li>
+                         <li><h4>Surname: </h4>{{account.surName}}</li>
+                         <li><h4>Gender: </h4>{{account.gender}}</li>
+                         <li><h4>Birthday: </h4>{{ account.dateBirth}}</li>
+                         <li><h4>Type account: </h4> {{account.type}}</li>
+
+                      </ul>
+<br/>
+                      <!-- start skills -->
+                      <h4>STATUS</h4>
+                      <ul class="list-unstyled user_data">
+                        <td class="project_progress">
+                            <div class="progress progress_sm">
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="{{account.progress}}"></div>
+                            </div>
+                            <small>{{ account.progress }}% Complete</small>
+                          </td>
+                      </ul>
+                      <!-- end of skills -->
+
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+
+                      <div class="profile_title">
+                        <div class="col-md-6">
+                          <h2>User Activity Report</h2>
+                        </div>
+
+                        
+                      </div>
+                      <!-- start of user-activity-graph -->
+
+
+                      <div>
+                        <ol>
+                            <li class="messages">
+                                <div class="message_wrapper">
+                                  <h4 class="heading">Identity Document</h4>
+                                  <p class="url">
+                                    <a target="blank" href="{{ asset('/assets/uploads/documents/' ~ account.idDocument) }}"><i class="fa fa-file-pdf-o"></i> Open Identity Document </a>
+                                  </p>
+                                </div>
+                                <br/>
+                              </li>
+
+                              <li >
+                                <div class="profile_img" >
+                                  <h4 class="heading">Signature</h4>
+                                     <div class="clearfix"></div>
+                                    <img width="300" height="300" class="img-responsive avatar-view" src="{{ asset('/assets/uploads/images/' ~ account.firma) }}" alt="Signature">
+                                  
+                                </div>
+                                <br/>
+                              </li>
+
+                              {% if account.type == "business" %}
+
+                              <li class="messages">
+
+                                <div class="message_wrapper">
+                                  <h4 class="heading">Company Statement Report</h4>
+                                  <p class="url">
+                                    <a href="{{ asset('/assets/uploads/documents/' ~ account.visura) }}"><i class="fa fa-file-pdf-o"></i> Open Company Statement </a>
+                                  </p>
+                                </div>
+                              </li>
+
+                              {% endif %}
+
+
+                        </ol>
+                          
+
+
+                      </div>
+                      <!-- end of user-activity-graph -->
+
+                      <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Back Office Operator - Check {{account.username}} status </a>
+                          </li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                          <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+                            <!-- Start to do list -->
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="x_panel">
+                
+                <div class="x_content">
+
+                  <div class="">
+                    <ul class="to_do">
+
+                  
+
+
+                    <form method="post"  action="{{path('checkboxProgress', {'id': account.id})}}">
+                          <li>
+                            <p>
+                              {% if account.progressBackOffice.0 is defined and account.progressBackOffice.0 == "on" %}
+                              <input id="checkbox" name="checkbox[0]" type="checkbox" class="flat" checked> 
+                              {% else %}
+                              <input id="checkbox" name="checkbox[0]" type="checkbox" class="flat">
+                              {% endif%}
+                              Signature 
+                            </p>
+
+                          </li>
+                      
+                      <li>
+                        <p>
+                          {% if account.progressBackOffice.1 is defined and   account.progressBackOffice.1 == "on" %}
+                            <input id="checkbox" name="checkbox[1]" type="checkbox" class="flat" checked> 
+                          {% else %}
+                             <input id="checkbox" name="checkbox[1]" type="checkbox" class="flat"> 
+                          {% endif%}
+                          Deadline of the Identity Document
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          {% if  account.progressBackOffice.2 is defined and account.progressBackOffice.2 == "on" %}
+                              <input id="checkbox" name="checkbox[2]" type="checkbox" class="flat" checked> 
+                          {% else %}
+                              <input id="checkbox" name="checkbox[2]" type="checkbox" class="flat">
+                          {% endif%}
+
+                        Personal information </p>
+                      </li>
+                      <li>
+                        <p>
+                          {% if  account.progressBackOffice.3 is defined and account.progressBackOffice.3 == "on" %}
+                              <input id="checkbox" name="checkbox[3]" type="checkbox" class="flat" checked> 
+                              {% else %}
+                              <input id="checkbox" name="checkbox[3]" type="checkbox" class="flat">
+                              {% endif%}
+
+                        Selfie and Id Photo</p>
+                      </li>
+
+                      {% if account.type == "business" %}
+
+                      <li>
+                        <p>
+                          {% if  account.progressBackOffice.4 is defined and account.progressBackOffice.4 == "on" %}
+                              <input id="checkbox" name="checkbox[4]" type="checkbox" class="flat" checked> 
+                          {% else %}
+                              <input id="checkbox" name="checkbox[4]" type="checkbox" class="flat">
+                          {% endif%}
+
+                        Codice Fiscale</p>
+                      </li>
+                      <li>
+                        <p>
+                          {% if  account.progressBackOffice.5 is defined and account.progressBackOffice.5 == "on" %}
+                              <input id="checkbox" name="checkbox[5]" type="checkbox" class="flat" checked> 
+                          {% else %}
+                              <input id="checkbox" name="checkbox[5]" type="checkbox" class="flat">
+                          {% endif%}
+
+                        Deadline of the Company Statement Report </p>
+                      </li>
+
+                      <li>
+                        <p>
+                         {% if  account.progressBackOffice.6 is defined and account.progressBackOffice.6 == "on" %}
+                              <input id="checkbox" name="checkbox[6]" type="checkbox" class="flat" checked> 
+                          {% else %}
+                              <input id="checkbox" name="checkbox[6]" type="checkbox" class="flat">
+                          {% endif%}
+                        Ateco code</p>
+                      </li>
+                      
+                      <li>
+                        <p>
+                          {% if  account.progressBackOffice.7 is defined and account.progressBackOffice.7 == "on" %}
+                              <input id="checkbox" name="checkbox[7]" type="checkbox" class="flat" checked> 
+                          {% else %}
+                              <input id="checkbox" name="checkbox[7]" type="checkbox" class="flat">
+                          {% endif%}
+                        Company Statement All right</p>
+                      </li>
+                      
+                      <li>
+                        <p>
+                          {% if  account.progressBackOffice.8 is defined and account.progressBackOffice.8 == "on" %}
+                              <input id="checkbox" name="checkbox[8]" type="checkbox" class="flat" checked> 
+                          {% else %}
+                              <input id="checkbox" name="checkbox[8]" type="checkbox" class="flat">
+                          {% endif%}
+                        Partita Iva</p>
+                      </li>
+                      
+                      <li>
+                        <p>
+                          {% if  account.progressBackOffice.9 is defined and account.progressBackOffice.9 == "on" %}
+                              <input id="checkbox" name="checkbox[9]" type="checkbox" class="flat" checked> 
+                          {% else %}
+                              <input id="checkbox" name="checkbox[9]" type="checkbox" class="flat">
+                          {% endif%}
+                        Merchandise category</p>
+                      </li>
+                                            
+
+                      {% endif %}
+
+                      <button class="btn btn-round btn-default" type="submit">Save</button>
+                    </form>
+
+
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End to do list -->
+
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+                            <!-- start user projects -->
+                            <table class="data table table-striped no-margin">
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Project Name</th>
+                                  <th>Client Company</th>
+                                  <th class="hidden-phone">Hours Spent</th>
+                                  <th>Contribution</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td>New Company Takeover Review</td>
+                                  <td>Deveint Inc</td>
+                                  <td class="hidden-phone">18</td>
+                                  <td class="vertical-align-mid">
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-success" data-transitiongoal="35"></div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>2</td>
+                                  <td>New Partner Contracts Consultanci</td>
+                                  <td>Deveint Inc</td>
+                                  <td class="hidden-phone">13</td>
+                                  <td class="vertical-align-mid">
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-danger" data-transitiongoal="15"></div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>3</td>
+                                  <td>Partners and Inverstors report</td>
+                                  <td>Deveint Inc</td>
+                                  <td class="hidden-phone">30</td>
+                                  <td class="vertical-align-mid">
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-success" data-transitiongoal="45"></div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>4</td>
+                                  <td>New Company Takeover Review</td>
+                                  <td>Deveint Inc</td>
+                                  <td class="hidden-phone">28</td>
+                                  <td class="vertical-align-mid">
+                                    <div class="progress">
+                                      <div class="progress-bar progress-bar-success" data-transitiongoal="75"></div>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <!-- end user projects -->
+
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                            <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui
+                              photo booth letterpress, commodo enim craft beer mlkshk </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        <!-- /page content -->
+
+
+
+
+
+
+
+{% endblock %}
+
+
+{% block javascripts %}
+    
+    {{ parent() }}
+ <!-- bootstrap-progressbar -->
+    <script src="{{ asset('assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
+
+    <!-- Chart.js -->
+    <script src="{{ asset('assets/vendors/Chart.js/dist/Chart.min.js') }}"></script>
+    <!-- gauge.js -->
+    <script src="{{ asset('assets/vendors/gauge.js/dist/gauge.min.js') }}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{{ asset('assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
+    <!-- iCheck -->
+    <script src="{{ asset('assets/vendors/iCheck/icheck.min.js') }}"></script>
+    <!-- Skycons -->
+    <script src="{{ asset('assets/vendors/skycons/skycons.js') }}"></script>
+    <!-- Flot -->
+    <script src="{{ asset('assets/vendors/flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('assets/vendors/flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ asset('assets/vendors/flot/jquery.flot.time.js') }}"></script>
+    <script src="{{ asset('assets/vendors/flot/jquery.flot.stack.js') }}"></script>
+    <script src="{{ asset('assets/vendors/flot/jquery.flot.resize.js') }}"></script>
+    <!-- Flot plugins -->
+    <script src="{{ asset('assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
+    <script src="{{ asset('assets/vendors/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/flot.curvedlines/curvedLines.js') }}"></script>
+    <!-- DateJS -->
+    <script src="{{ asset('assets/vendors/DateJS/build/date.js') }}"></script>
+    <!-- JQVMap -->
+    <script src="{{ asset('assets/vendors/jqvmap/dist/jquery.vmap.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{{ asset('assets/vendors/moment/min/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+
+
+    <!-- jQuery -->
+    <script src="{{ asset('assets/vendors/jquery/dist/jquery.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <!-- FastClick -->
+    <script src="{{ asset('assets/vendors/fastclick/lib/fastclick.js') }}"></script>
+    <!-- NProgress -->
+    <script src="{{ asset('assets/vendors/nprogress/nprogress.js') }}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{{ asset('assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
+    <!-- iCheck -->
+    <script src="{{ asset('assets/vendors/iCheck/icheck.min.js') }}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{{ asset('assets/vendors/moment/min/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <!-- bootstrap-wysiwyg -->
+    <script src="{{ asset('assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/jquery.hotkeys/jquery.hotkeys.js') }}"></script>
+    <script src="{{ asset('assets/vendors/google-code-prettify/src/prettify.js') }}"></script>
+    <!-- jQuery Tags Input -->
+    <script src="{{ asset('assets/vendors/jquery.tagsinput/src/jquery.tagsinput.js') }}"></script>
+    <!-- Switchery -->
+    <script src="{{ asset('assets/vendors/switchery/dist/switchery.min.js') }}"></script>
+    <!-- Select2 -->
+    <script src="{{ asset('assets/vendors/select2/dist/js/select2.full.min.js') }}"></script>
+    <!-- Parsley -->
+    <script src="{{ asset('assets/vendors/parsleyjs/dist/parsley.min.js') }}"></script>
+    <!-- Autosize -->
+    <script src="{{ asset('assets/vendors/autosize/dist/autosize.min.js') }}"></script>
+    <!-- jQuery autocomplete -->
+    <script src="{{ asset('assets/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js') }}"></script>
+    <!-- starrr -->
+    <script src="{{ asset('assets/vendors/starrr/dist/starrr.js') }}"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="{{ asset('assets/js/custom.min.js') }}"></script>
+
+    <!-- jQuery -->
+    <script src="{{ asset('assets/vendors/jquery/dist/jquery.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <!-- FastClick -->
+    <script src="{{ asset('assets/vendors/fastclick/lib/fastclick.js') }}"></script>
+    <!-- NProgress -->
+    <script src="{{ asset('assets/vendors/nprogress/nprogress.js') }}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{{ asset('assets/vendors/moment/min/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <!-- Ion.RangeSlider -->
+    <script src="{{ asset('assets/vendors/ion.rangeSlider/js/ion.rangeSlider.min.js') }}"></script>
+    <!-- Bootstrap Colorpicker -->
+    <script src="{{ asset('assets/vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
+    <!-- jquery.inputmask -->
+    <script src="{{ asset('assets/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js') }}"></script>
+    <!-- jQuery Knob -->
+    <script src="{{ asset('assets/vendors/jquery-knob/dist/jquery.knob.min.js') }}"></script>
+    <!-- Cropper -->
+    <script src="{{ asset('assets/vendors/cropper/dist/cropper.min.js') }}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{{ asset('assets/js/custom.min.js') }}"></script>
+
+
+{% endblock javascripts %}

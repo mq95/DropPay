@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: 5432
+    database_name: bpmn_droppay
+    database_user: postgres
+    database_password: postgres
+    mailer_transport: gmail
+    mailer_host: smtp.gmail.com
+    mailer_user: malak95q@gmail.com
+    mailer_password: malak1995
+    secret: ThisTokenIsNotSoSecretChangeIt

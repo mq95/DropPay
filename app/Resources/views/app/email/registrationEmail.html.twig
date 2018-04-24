@@ -1,0 +1,9 @@
+
+          
+<h3>You registered!</h3>
+
+Hi <strong> {{ account.username }} </strong>! You're successfully registered, now you have to waiting the AML check to have yor {{ account.type }} account.
+
+Go to <a href="{{ url('registered', {'id': account.id}) }}" >homepage </a>.
+
+Thanks!
