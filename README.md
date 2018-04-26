@@ -17,9 +17,5 @@ Con DropPay® puoi inviare e ricevere denaro con il tuo smartphone ed effettuare
 
 <br>
 
-### Credits
 
-[Gentelella](https://github.com/puikinsh/gentelella) - Admin template developed and maintained by Colorlib and Aigars Silkalns
-
-<br>
 
